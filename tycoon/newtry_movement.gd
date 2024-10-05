@@ -16,8 +16,16 @@ func _input(event):
 		# left movement direction = camera direction - 90 degrees
 		# right movement direction = camera direction + 90 degrees
 		
-		movement_direction.x = (Input.get_action_strength("left") - Input.get_action_strength("right"))
-		movement_direction.z = (Input.get_action_strength("forward") - Input.get_action_strength("back"))
+		# Create a 2d vector for input movements, grab WASD inputs and create that vector.
+		# Then set the final movement vector (which is a Vector3) equal to the camera's position/rotation
+		# normalized (I think this is what this is doing) * a Vector3 version of our 2d movement vector.
+		var movement_dir_2d := Input.get_vector("left", "right", "forward", "back")
+		movement_direction = camera.global_transform.basis * Vector3(movement_dir_2d.x, 0, movement_dir_2d.y)
+
+		# Old Code, remove when you don't need it anymore
+		#movement_direction.x = (Input.get_action_strength("left") - Input.get_action_strength("right"))
+		#movement_direction.z = (Input.get_action_strength("forward") - Input.get_action_strength("back"))
+
 		#print("camera y rotation: ", camera.global_rotation_degrees.y)
 		
 		if is_movement_ongoing():
