@@ -59,7 +59,7 @@ transform = Transform3D(0.408873, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.714137, 1.53791)
 mesh = SubResource("BoxMesh_6fslf")
 
 [node name="CamRoot" type="Node3D" parent="Player" node_paths=PackedStringArray("player")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 script = ExtResource("3_84cph")
 player = NodePath("..")
 
