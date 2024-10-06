@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://mj835lg0bg3a"]
+[gd_scene load_steps=16 format=3 uid="uid://mj835lg0bg3a"]
 
 [ext_resource type="Material" uid="uid://cpe580eg10p3b" path="res://dirt.material" id="1_ptj2v"]
 
@@ -34,9 +34,13 @@ material = SubResource("StandardMaterial3D_k307x")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n03mi"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_cue2y"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1s3q"]
+albedo_color = Color(0.54902, 0.294118, 0, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_j0fjk"]
+[sub_resource type="BoxMesh" id="BoxMesh_cue2y"]
+material = SubResource("StandardMaterial3D_u1s3q")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8pmqt"]
 
 [node name="MeshLibrary" type="Node3D"]
 
@@ -76,11 +80,11 @@ mesh = SubResource("BoxMesh_0mc10")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sand/StaticBody3D"]
 shape = SubResource("BoxShape3D_n03mi")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Carrot" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 mesh = SubResource("BoxMesh_cue2y")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Carrot"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("BoxShape3D_j0fjk")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot/StaticBody3D"]
+shape = SubResource("BoxShape3D_8pmqt")
